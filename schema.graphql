@@ -1,0 +1,7 @@
+type User @entity {
+  id: ID!
+  address: String!
+  fname: String
+  fId: BigInt!
+  url: String!
+}
