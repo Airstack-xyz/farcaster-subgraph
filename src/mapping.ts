@@ -16,6 +16,7 @@ function getOrCreateUser(fId: BigInt, wallet: Address, blockNumber: BigInt, bloc
   if (user == null) {
     user = new User(fId.toString());
     user.createdAtBlock = blockNumber;
+    user.fId = fId;
     user.createdAtTimestamp = blockTimestamp;
   }
   user.address = wallet.toHexString();
@@ -48,8 +49,8 @@ export function handleTransfer(event: Transfer): void {
 
   const fname = Bytes.fromHexString(event.params.tokenId.toHexString()).toString()
 
-  log.info("transfer from {} to {} token id {} hex {} fId {} ",
-    [event.params.from.toHexString(), toAdress.toHexString(), tokenId.toString(), fname, fId.value.toString()])
+  log.info("transfer from {} to {} token id {} hex {} fId {} userId {} ",
+    [event.params.from.toHexString(), toAdress.toHexString(), tokenId.toString(), fname, fId.value.toString(), user.id])
 
   const nameRegistry = FarcasterNameRegistry.bind(event.address);
   const tokenURI = nameRegistry.try_tokenURI(tokenId);

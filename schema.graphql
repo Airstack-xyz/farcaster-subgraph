@@ -1,8 +1,9 @@
 type User @entity {
   id: ID! #fid
+  fId: BigInt!
   address: String!
   url: String
-  fnames: [UserFname!]! @derivedBy(field: "user")
+  fnames: [UserFname!]! @derivedFrom(field: "user")
   createdAtBlock: BigInt!
   createdAtTimestamp: BigInt
 }

@@ -3,20 +3,33 @@ Repo to index farcaster data on Goerli
 
 
 This Repo indexes Users on forcaster Dapp. 
+1. Every user will have fId
+2. One user can have more than 1 fnames. 
 
 Subgraph is deployed here:
-[https://thegraph.com/hosted-service/subgraph/0xsarvesh/farcaster-goerli](https://thegraph.com/hosted-service/subgraph/0xsarvesh/farcaster-goerli)
+[https://api.thegraph.com/subgraphs/name/airstack-xyz/farcaster-goerli](https://api.thegraph.com/subgraphs/name/airstack-xyz/farcaster-goerli)
 
 
-1. Query to get details of a user by address: 
+
+1. Query to get details of a user by id: 
 ```
 {
-  user(id: "0x24f182e4a138dc8c1c60b305685092e95a96f56e") {
+  users(where:{id: "100"}) {
     id
-    address
-    fname
     fId
+    address
+    url
+    fnames {
+      id
+      fname
+      tokenURI
+      createdAtBlock
+      createdAtTimestamp
+    }
+    createdAtBlock
+    createdAtTimestamp
   }
+ 
 }
 
 ```
@@ -26,12 +39,22 @@ Note: Change Id as required
    
 ```
 {
-  users(first: 5) {
+  users {
     id
-    address
-    fname
     fId
+    address
+    url
+    fnames {
+      id
+      fname
+      tokenURI
+      createdAtBlock
+      createdAtTimestamp
+    }
+    createdAtBlock
+    createdAtTimestamp
   }
+ 
 }
 
 ``` 
