@@ -7,7 +7,7 @@ This Repo indexes Users on forcaster Dapp.
 2. One user can have more than 1 fnames. 
 
 Subgraph is deployed here:
-[https://api.thegraph.com/subgraphs/name/airstack-xyz/farcaster-goerli](https://api.thegraph.com/subgraphs/name/airstack-xyz/farcaster-goerli)
+[https://thegraph.com/subgraphs/name/airstack-xyz/farcaster-goerli](https://thegraph.com/subgraphs/name/airstack-xyz/farcaster-goerli)
 
 
 
