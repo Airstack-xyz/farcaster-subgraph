@@ -1,7 +1,17 @@
 type User @entity {
-  id: ID!
+  id: ID! #fid
   address: String!
-  fname: String
-  fId: BigInt!
-  url: String!
+  url: String
+  fnames: [UserFname!]! @derivedBy(field: "user")
+  createdAtBlock: BigInt!
+  createdAtTimestamp: BigInt
+}
+
+type UserFname @entity {
+ id: ID! # fid-fname
+ user: User!
+ fname: String!
+ tokenURI: String
+ createdAtBlock: BigInt!
+ createdAtTimestamp: BigInt
 }
